@@ -1,0 +1,83 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #0d0d1a;
+  --bg-secondary: rgba(12,10,22,0.94);
+  --glass-bg: rgba(20,17,32,0.94);
+  --glass-border: rgba(255,255,255,0.24);
+  --glass-hover: #343044;
+  --text-primary: #ffffff;
+  --text-secondary: #d0cadf;
+  --text-tertiary: #bfb8cf;
+  --accent-1: #6e3eff;
+  --accent-2: #a855f7;
+  --success: #34d399;
+  --error: #ffb4ab;
+  --accent-background: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)), linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: radial-gradient(ellipse at 20% 50%, #1a0533 0%, var(--bg-primary) 50%, #000 100%);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.glass {
+  color: var(--text-primary);
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-panel {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+.glass-hover {
+  background: var(--glass-bg);
+  transition: background 0.15s, border-color 0.15s;
+}
+.glass-hover:hover {
+  background: var(--glass-hover);
+  border-color: rgba(255,255,255,0.18);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+:focus-visible {
+  outline: 2px solid #e5ddff;
+  outline-offset: 3px;
+}
+
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+button, input, textarea, select { font: inherit; color: var(--text-primary); }
+input, textarea, select, option { background-color: #211d30; }
+input::placeholder, textarea::placeholder { color: var(--text-secondary); opacity: 1; }
+a { color: #dfcfff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-hover { transition: none; }
+}
